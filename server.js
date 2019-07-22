@@ -1,6 +1,7 @@
 const express = require('express');
 
 const server = express();
+const router = require('./route');
 
 server.use(express.json());
 
@@ -10,5 +11,7 @@ server.get('/', (req, res) =>
     message: 'Welcome, thou loyal developer!',
   }),
 );
+
+server.use('/api', router);
 
 module.exports = server;
