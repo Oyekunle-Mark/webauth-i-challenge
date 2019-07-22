@@ -1,7 +1,10 @@
+const bcrypt = require('bcrypt');
 const Model = require('../model');
 
 const register = async (req, res) => {
-  const { username, password } = req.body;
+  const { username } = req.body;
+
+  const password = await bcrypt.hash(req.body.password, 12);
 
   try {
     const user = await Model.add({ username, password });
