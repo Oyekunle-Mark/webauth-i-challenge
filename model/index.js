@@ -13,7 +13,10 @@ const findBy = username =>
     .where({ username })
     .first();
 
+const get = () => db('users');
+
 module.exports = {
   add,
   findBy,
+  get,
 };
