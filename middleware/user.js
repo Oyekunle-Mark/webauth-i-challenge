@@ -16,6 +16,16 @@ const validateReqBody = (req, res, next) => {
   next();
 };
 
+const protectPage = (req, res, next) => {
+  if (req.session && req.session.user) next();
+  else
+    res.status(401).json({
+      status: 401,
+      message: 'Thou shall not pass!',
+    });
+};
+
 module.exports = {
   validateReqBody,
+  protectPage,
 };
