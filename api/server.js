@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const logger = require('morgan');
 
 const server = express();
-const router = require('./route');
+const router = require('../route');
 
 server.use(express.json());
 server.use(cors());
